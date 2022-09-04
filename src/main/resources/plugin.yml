@@ -1,0 +1,4 @@
+name: Utilities
+version: '${project.version}'
+main: me.accogliente.utilities.Utilities
+api-version: 1.19
