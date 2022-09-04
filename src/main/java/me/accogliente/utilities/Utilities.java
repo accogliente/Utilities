@@ -14,6 +14,7 @@ public final class Utilities extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        getServer().getConsoleSender().sendMessage("TEStT2");
 
     }
 }
