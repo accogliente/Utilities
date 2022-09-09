@@ -5,4 +5,13 @@ api-version: 1.19
 commands:
   heal:
     usage: /<command>
-    description: Heal
+    description: heal player
+  gm:
+    usage: /<command>
+    description: alt for gamemode
+  feed:
+    usage: /<command>
+    description: feed player
+  back:
+    usage: /<command>
+    description: back to death location
