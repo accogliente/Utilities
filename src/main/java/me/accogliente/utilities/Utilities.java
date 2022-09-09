@@ -4,13 +4,17 @@ import Commands.Back;
 import Commands.Feed;
 import Commands.GM;
 import Commands.Heal;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Utilities extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        //config.yml
+        getConfig().options().copyDefaults(true);
+        saveDefaultConfig();
+
 
         //Message on enable
         getServer().getConsoleSender().sendMessage("[Utilities] Plugin is enabled");

@@ -6,12 +6,21 @@ commands:
   heal:
     usage: /<command>
     description: heal player
+    aliases:
+      - h
   gm:
     usage: /<command>
     description: alt for gamemode
+    aliases:
+      - g
+      - gamemode
   feed:
     usage: /<command>
     description: feed player
+    aliases:
+      - f
   back:
     usage: /<command>
     description: back to death location
+    aliases:
+      - b
