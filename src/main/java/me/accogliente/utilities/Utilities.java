@@ -4,14 +4,23 @@ import Commands.Back;
 import Commands.Feed;
 import Commands.GM;
 import Commands.Heal;
+import Tools.ConfigManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Utilities extends JavaPlugin {
 
+    private static Utilities plugin;
+
     @Override
     public void onEnable() {
+        plugin = this;
 
-        //config.yml
+        //messages.yml setup
+        ConfigManager.setupmsg();
+        ConfigManager.getmsg().options().copyDefaults(true);
+        ConfigManager.savemsg();
+
+        //config.yml setup
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
 
@@ -33,8 +42,15 @@ public final class Utilities extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        plugin = null;
 
         //Message on disable
         getServer().getConsoleSender().sendMessage("[Utilities] Plugin is disabled");
     }
+
+    public static Utilities get(){
+        return plugin;
+    }
+
+
 }
