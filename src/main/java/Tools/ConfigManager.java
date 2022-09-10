@@ -13,10 +13,16 @@ public class ConfigManager {
     private static File msgfile;
     private static FileConfiguration msgconfig;
 
-    //messages.yml setup
-    public static void setupmsg(){
+    //spawn.yml
+    private static File spawnfile;
+    private static FileConfiguration spawncfg;
+
+    //configs setup
+    public static void setupconfigs(){
         msgfile = new File(Utilities.get()
                 .getServer().getPluginManager().getPlugin("Utilities").getDataFolder(), "messages.yml");
+        spawnfile = new File(Utilities.get()
+                .getServer().getPluginManager().getPlugin("Utilities").getDataFolder(), "spawn.yml");
 
         if(!msgfile.exists()){
             try {
@@ -26,25 +32,37 @@ public class ConfigManager {
             }
         }
         msgconfig = YamlConfiguration.loadConfiguration(msgfile);
+        spawncfg = YamlConfiguration.loadConfiguration(spawnfile);
     }
 
     //messages.yml get
     public static FileConfiguration getmsg(){
         return msgconfig;
     }
+    //spawn.yml
+    public static FileConfiguration getspawn() { return spawncfg; }
 
-    //messages.yml save
-    public static void savemsg(){
+    //configs save
+    public static void save(){
         try {
             msgconfig.save(msgfile);
+            spawncfg.save(spawnfile);
         }catch (IOException e){
-            System.out.print("messages.yml ERROR");
+            System.out.print("configs ERROR");
         }
     }
 
-    //messages.yml reload
-    public static void reloadmsg(){
-        msgconfig = YamlConfiguration.loadConfiguration(msgfile);
+    //reload configs
+    //public static void reload(){
+    //    msgconfig = YamlConfiguration.loadConfiguration(msgfile);
+    //    spawncfg = YamlConfiguration.loadConfiguration(spawnfile);
+    //}
+    public static void loadmsg() {
+        try {
+            msgconfig.load(msgfile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

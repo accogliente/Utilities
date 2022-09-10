@@ -24,3 +24,32 @@ commands:
     description: back to death location
     aliases:
       - b
+  utilreload:
+    usage: /<command>
+    description: reload plugin
+    aliases:
+      - ur
+  spawn:
+    usage: /<command>
+    description: teleport to spawn
+  setspawn:
+    usage: /<command>
+    description: set spawn location
+  wb:
+    usage: /<command>
+    description: open work banch
+    aliases:
+      - workbanch
+      - craft
+  anvil:
+    usage: /<command>
+    description: open anvil
+    aliases:
+      - anvil
+      - anv
+  ec:
+    usage: /<command>
+    description: open ender chest
+    aliases:
+      - enderchest
+      - echest

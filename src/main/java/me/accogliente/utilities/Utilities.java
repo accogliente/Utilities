@@ -1,11 +1,8 @@
 package me.accogliente.utilities;
 
-import Commands.Back;
-import Commands.Feed;
-import Commands.GM;
-import Commands.Heal;
+import Commands.*;
 import Tools.ConfigManager;
-import org.bukkit.ChatColor;
+import Tools.TM;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Utilities extends JavaPlugin {
@@ -16,13 +13,16 @@ public final class Utilities extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
-        //messages.yml setup
-        ConfigManager.setupmsg();
+        //custom configs setup
+        ConfigManager.setupconfigs();
 
-        ConfigManager.getmsg().addDefault("Prefix", "&c[Utilities]");
-
+        ConfigManager.getmsg().addDefault("Prefix", "[Utilities] ");
+        ConfigManager.getmsg().addDefault("Only_for_players", "Only for players");
+        ConfigManager.getmsg().addDefault("Heal_full_HP", "Your HP is full");
+        ConfigManager.getmsg().addDefault("Heal_success", "Success!");
         ConfigManager.getmsg().options().copyDefaults(true);
-        ConfigManager.savemsg();
+
+        ConfigManager.save();
 
 
         //config.yml setup
@@ -31,7 +31,7 @@ public final class Utilities extends JavaPlugin {
 
 
         //Message on enable
-        getServer().getConsoleSender().sendMessage("[Utilities] Plugin is enabled");
+        getServer().getConsoleSender().sendMessage(TM.prefix + " Plugin is enabled");
 
         //Commands reg
             //Command /heal
@@ -43,6 +43,18 @@ public final class Utilities extends JavaPlugin {
             //Command /back
             getServer().getPluginManager().registerEvents(new Back(), this);
             this.getCommand("back").setExecutor(new Back());
+            //Command /utilreload
+            this.getCommand("utilreload").setExecutor(new UtilReload());
+            //Command /spawn & /setspawn
+            this.getCommand("spawn").setExecutor(new Spawn());
+            this.getCommand("setspawn").setExecutor(new Spawn());
+            //Command /wb
+            this.getCommand("wb").setExecutor(new WB());
+            //Command /anvil
+            this.getCommand("anvil").setExecutor(new Anvil());
+            //Command /ec
+            this.getCommand("ec").setExecutor(new EC());
+
     }
 
     @Override
@@ -50,7 +62,7 @@ public final class Utilities extends JavaPlugin {
         plugin = null;
 
         //Message on disable
-        getServer().getConsoleSender().sendMessage("[Utilities] Plugin is disabled");
+        getServer().getConsoleSender().sendMessage(TM.prefix + " Plugin is disabled");
     }
 
     public static Utilities get(){
