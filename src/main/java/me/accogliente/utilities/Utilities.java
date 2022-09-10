@@ -5,6 +5,7 @@ import Commands.Feed;
 import Commands.GM;
 import Commands.Heal;
 import Tools.ConfigManager;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Utilities extends JavaPlugin {
@@ -17,8 +18,12 @@ public final class Utilities extends JavaPlugin {
 
         //messages.yml setup
         ConfigManager.setupmsg();
+
+        ConfigManager.getmsg().addDefault("Prefix", "&c[Utilities]");
+
         ConfigManager.getmsg().options().copyDefaults(true);
         ConfigManager.savemsg();
+
 
         //config.yml setup
         getConfig().options().copyDefaults(true);
