@@ -4,8 +4,7 @@ import me.accogliente.utilities.Utilities;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class ConfigManager {
 
@@ -53,16 +52,24 @@ public class ConfigManager {
     }
 
     //reload configs
-    //public static void reload(){
-    //    msgconfig = YamlConfiguration.loadConfiguration(msgfile);
-    //    spawncfg = YamlConfiguration.loadConfiguration(spawnfile);
-    //}
-    public static void loadmsg() {
-        try {
-            msgconfig.load(msgfile);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void reload(){
+        msgconfig = YamlConfiguration.loadConfiguration(msgfile);
+        spawncfg = YamlConfiguration.loadConfiguration(spawnfile);
+        ConfigManager.save();
     }
+
+    //public static void reloadmsg() throws UnsupportedEncodingException {
+    //    if (msgfile == null) {
+    //        msgfile = new File(Utilities.get()
+    //                .getServer().getPluginManager().getPlugin("Utilities").getDataFolder(), "messages.yml");
+    //    }
+    //    msgconfig = YamlConfiguration.loadConfiguration(msgfile);
+    //    // Look for defaults in the jar
+    //    Reader defConfigStream = new InputStreamReader(Utilities.get().getResource("messages.yml"), "UTF8");
+    //    if (defConfigStream != null) {
+    //        YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
+    //        msgconfig.setDefaults(defConfig);
+    //    }
+    //}
 
 }

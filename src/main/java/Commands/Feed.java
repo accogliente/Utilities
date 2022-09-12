@@ -1,5 +1,6 @@
 package Commands;
 
+import Tools.TM;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,18 +14,16 @@ public class Feed implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(command.getName().equalsIgnoreCase("feed")){
             if(!(sender instanceof Player)){
-                sender.sendMessage("[Utilities] Only for players!");
+                sender.sendMessage(TM.prefix + TM.console);
                 return true;
             }else{
                 Player player = ((Player) sender).getPlayer();
                 if(player.getFoodLevel() >= 20){
-                    player.sendMessage(ChatColor.GOLD + "[Utilities] "
-                            + ChatColor.RED + "Your food lvl is full");
+                    player.sendMessage(TM.prefix + TM.feed_error);
                     return true;
                 }else{
                     player.setFoodLevel(20);
-                    player.sendMessage(ChatColor.GOLD + "[Utilities] "
-                            + ChatColor.YELLOW + "You have been feed");
+                    player.sendMessage(TM.prefix + TM.success);
                 }
             }
         }

@@ -19,10 +19,10 @@ public class Heal implements CommandExecutor {
             } else {
                 Player player = ((Player) sender).getPlayer();
                 if (player.getHealth() >= 20) {
-                    player.sendMessage(TM.prefix + "Your HP is full!");
+                    player.sendMessage(TM.prefix + TM.heal_error);
                 } else {
                     player.setHealth(20);
-                    player.sendMessage(TM.prefix + "You are been healed!");
+                    player.sendMessage(TM.prefix + TM.success);
 
                 }
             }

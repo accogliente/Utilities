@@ -16,18 +16,31 @@ public final class Utilities extends JavaPlugin {
         //custom configs setup
         ConfigManager.setupconfigs();
 
-        ConfigManager.getmsg().addDefault("Prefix", "[Utilities] ");
-        ConfigManager.getmsg().addDefault("Only_for_players", "Only for players");
-        ConfigManager.getmsg().addDefault("Heal_full_HP", "Your HP is full");
-        ConfigManager.getmsg().addDefault("Heal_success", "Success!");
-        ConfigManager.getmsg().options().copyDefaults(true);
-
-        ConfigManager.save();
-
+        //main
+        getConfig().addDefault("Prefix", "&2[Utilities]&r ");
+        getConfig().addDefault("Only_for_players", "Only for players");
+        getConfig().addDefault("Success", "&aSuccess!");
+        //command /heal
+        getConfig().addDefault("Heal_full_HP", "&cYour HP is full!");
+        //command /spawn
+        getConfig().addDefault("Spawn_error", "&cSpawn location does not found.");
+        getConfig().addDefault("Spawn_set", "&aSpawn set!");
+        //command /gm
+        getConfig().addDefault("Game_mode_creative", "&fYour game mode change to &bCreative");
+        getConfig().addDefault("Game_mode_adventure", "&fYour game mode change to &3Adventure");
+        getConfig().addDefault("Game_mode_survival", "&fYour game mode change to &aSurvival");
+        getConfig().addDefault("Game_mode_spectator", "&fYour game mode change to &2Spectator");
+        getConfig().addDefault("Game_mode_error", "&cType argument (0/1/2/3)!");
+        //command /feed
+        getConfig().addDefault("Feed_error", "&cYou are not hungry!");
 
         //config.yml setup
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+
+
+        // ConfigManager.getmsg().options().copyDefaults(true);
+        // ConfigManager.save();
 
 
         //Message on enable
