@@ -1,7 +1,6 @@
 package Commands;
 
 import Tools.ConfigManager;
-import Tools.TM;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -18,7 +17,7 @@ public class Spawn implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(command.getName().equalsIgnoreCase("setspawn")){
             if(!(sender instanceof Player)){
-                sender.sendMessage(TM.prefix + TM.console);
+                sender.sendMessage("123");
                 return true;
             }else{
                 Player player = ((Player) sender).getPlayer();
@@ -33,16 +32,16 @@ public class Spawn implements CommandExecutor {
                 ConfigManager.getspawn().set("Set by:", player.getName());
                 ConfigManager.save();
 
-                player.sendMessage(TM.prefix + TM.spawn_set);
+                player.sendMessage("123");
             }
         }else if(command.getName().equalsIgnoreCase("spawn")){
             if(!(sender instanceof Player)){
-                sender.sendMessage(TM.prefix + TM.console);
+                sender.sendMessage("123");
                 return true;
             }else{
                 Player player = ((Player) sender).getPlayer();
                 if(ConfigManager.getspawn().getString("World:") == null){
-                    player.sendMessage(TM.prefix + TM.spawn_error);
+                    player.sendMessage("123");
                     return true;
                 }else{
                     World world = Bukkit.getWorld(ConfigManager.getspawn().getString("World:"));
@@ -58,7 +57,7 @@ public class Spawn implements CommandExecutor {
                             , yaw, pitch);
 
                     player.teleport(loc);
-                    player.sendMessage(TM.prefix + TM.success);
+                    player.sendMessage("123");
                 }
             }
         }

@@ -1,7 +1,5 @@
 package Commands;
 
-import Tools.TM;
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,26 +13,26 @@ public class GM implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(command.getName().equalsIgnoreCase("gm")){
             if(!(sender instanceof Player)){
-                sender.sendMessage(TM.prefix + TM.console);
+                sender.sendMessage("123");
                 return true;
             }else{
                 Player player = ((Player) sender).getPlayer();
                 if(args.length <= 0){
-                    player.sendMessage(TM.prefix + TM.gm_error);
+                    player.sendMessage("123");
                     return true;
                 }else{
                     if(args[0].equalsIgnoreCase("0")){
                         player.setGameMode(GameMode.SURVIVAL);
-                        player.sendMessage(TM.prefix + TM.gm_survival);
+                        player.sendMessage("123");
                     }else if(args[0].equalsIgnoreCase("1")){
                         player.setGameMode(GameMode.CREATIVE);
-                        player.sendMessage(TM.prefix + TM.gm_creative);
+                        player.sendMessage("123");
                     }else if(args[0].equalsIgnoreCase("2")){
                         player.setGameMode(GameMode.ADVENTURE);
-                        player.sendMessage(TM.prefix + TM.gm_adventure);
+                        player.sendMessage("123");
                     }else if(args[0].equalsIgnoreCase("3")){
                         player.setGameMode(GameMode.SPECTATOR);
-                        player.sendMessage(TM.prefix + TM.gm_spectator);
+                        player.sendMessage("123");
                     }
                 }
             }

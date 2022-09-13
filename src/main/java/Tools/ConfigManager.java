@@ -58,6 +58,17 @@ public class ConfigManager {
         ConfigManager.save();
     }
 
+    //public static void reloadcfg(){
+    //    FileConfiguration config = Utilities.get().getConfig();
+    //    File fileconfig = new File;
+//
+    //
+//
+    //    //Utilities.get().reloadConfig();
+    //    //Utilities.get().saveConfig();
+    //}
+
+
     //public static void reloadmsg() throws UnsupportedEncodingException {
     //    if (msgfile == null) {
     //        msgfile = new File(Utilities.get()

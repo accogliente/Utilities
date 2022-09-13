@@ -1,7 +1,7 @@
 package Commands;
 
 import Tools.ConfigManager;
-import Tools.TM;
+import me.accogliente.utilities.Utilities;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,17 +12,16 @@ public class Heal implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(command.getName().equalsIgnoreCase("heal")) {
-            ConfigManager.save();
             if (!(sender instanceof Player)) {
-                sender.sendMessage(TM.prefix + TM.console);
+                sender.sendMessage(Utilities.get().getConfig());
                 return true;
             } else {
                 Player player = ((Player) sender).getPlayer();
                 if (player.getHealth() >= 20) {
-                    player.sendMessage(TM.prefix + TM.heal_error);
+                    player.sendMessage("123");
                 } else {
                     player.setHealth(20);
-                    player.sendMessage(TM.prefix + TM.success);
+                    player.sendMessage("123");
 
                 }
             }

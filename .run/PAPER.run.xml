@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="PAPER" type="JarApplication">
-    <option name="JAR_PATH" value="$PROJECT_DIR$/../../PAPER/paper-1.19.1.jar" />
-    <option name="WORKING_DIRECTORY" value="C:\Minecraft\IDEA\Utilities" />
+    <option name="JAR_PATH" value="$PROJECT_DIR$/../../Minecraft/PAPER 1.19.1/paper-1.19.1.jar" />
+    <option name="WORKING_DIRECTORY" value="D:\Nikita\Minecraft\PAPER 1.19.1" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2" />
   </configuration>
